@@ -1,0 +1,49 @@
+.box {
+  width: 425px;
+  height: 410px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 2px solid #5a5a5a;
+  text-align: center;
+  background: #cdcdcd;
+  border-radius: 50%; 
+}
+
+.box h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding-top: 23px;
+  line-height: 1.8rem;
+}
+
+.counter {
+  font-size: 4rem;
+  margin: 2.2rem 0;
+  border: 1px solid gray;
+  background: white;
+  border-radius: 8px;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+button{
+  padding: .5rem 2rem;
+  border: 2px solid #333;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background: rgb(17, 17, 17);
+  color: white;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

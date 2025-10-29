@@ -1,0 +1,9 @@
+<div class="box" title="cronómetro">
+  <h2>Mi Cronómetro <br>
+    Observable</h2>
+  <div class="counter">{{ counter }}</div>
+  <div class="btns">
+    <button (click)="start()" [disabled]="running">empezar</button>
+    <button (click)="restart()">reiniciar</button>
+  </div>
+</div>
