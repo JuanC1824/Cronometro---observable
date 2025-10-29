@@ -5,6 +5,7 @@ import { CronometroService } from '../services/cronometro.service';
 @Component({
   selector: 'app-cronometro',
   standalone: true,
+  providers: [CronometroService],
   templateUrl: './cronometro.component.html',
   styleUrls: ['./cronometro.component.css']
 })
