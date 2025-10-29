@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ApplicationRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CronometroService } from '../services/cronometro.service';
 
@@ -16,7 +16,8 @@ export class CronometroComponent {
 
   constructor(
     private cronometroService: CronometroService,
-    private cdr: ChangeDetectorRef) { }
+    private appRef: ApplicationRef
+  ) {}
 
   start() { 
     if (this.running) return;
@@ -24,7 +25,7 @@ export class CronometroComponent {
     this.sub = this.cronometroService.getCronometro()
       .subscribe(n => {
         this.counter = n;
-        this.cdr.markForCheck();
+        this.appRef.tick(); 
       });
   }
 
