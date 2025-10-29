@@ -1,4 +1,4 @@
-import { Component, ApplicationRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CronometroService } from '../services/cronometro.service';
 
@@ -16,19 +16,28 @@ export class CronometroComponent {
 
   constructor(
     private cronometroService: CronometroService,
-    private appRef: ApplicationRef
+    private cdr: ChangeDetectorRef
   ) {}
 
   start() { 
     if (this.running) return;
     this.running = true;
     this.sub = this.cronometroService.getCronometro()
-      .subscribe(n => this.counter = n);
+      .subscribe(n => {
+        this.counter = n;
+        this.cdr.detectChanges();
+      });
   }
 
   restart() {
     this.running = false;
     this.sub?.unsubscribe();
     this.counter = 0;
+    this.cdr.detectChanges();
+  }
+
+  ngOnDestroy() {
+  this.sub?.unsubscribe();
+  console.log('Cronómetro detenido');
   }
 }
