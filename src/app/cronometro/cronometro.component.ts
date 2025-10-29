@@ -23,10 +23,7 @@ export class CronometroComponent {
     if (this.running) return;
     this.running = true;
     this.sub = this.cronometroService.getCronometro()
-      .subscribe(n => {
-        this.counter = n;
-        this.appRef.tick(); 
-      });
+      .subscribe(n => this.counter = n);
   }
 
   restart() {
